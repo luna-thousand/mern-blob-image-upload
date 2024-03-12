@@ -13,13 +13,4 @@ router.get('/image', async (req, res) => {
     return res.status(200).json({ all_image: ImageData })
 })
 
-router.get('/image/:id', async (req, res) => {
-    try {
-        const ImageDataById = await Image.findById(req.params.id)
-        return res.status(200).json({ image: ImageDataById})
-    } catch (error) {
-        return res.status(404).json({ error: 'Not found image.' })
-    }
-})
-
 module.exports = router
